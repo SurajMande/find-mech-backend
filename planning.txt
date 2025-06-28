@@ -1,0 +1,64 @@
+backend/
+│
+├── config/                # Configuration files (DB, env, third-party services)
+│   └── db.js              # MongoDB connection
+│
+├── controllers/           # Business logic for each route
+│   ├── authController.js
+│   ├── bookingController.js
+│   ├── userController.js
+│   ├── mechanicController.js
+│   └── adminController.js
+│
+├── models/                # Mongoose models (schemas)
+│   ├── User.js
+│   ├── Mechanic.js
+│   ├── Booking.js
+│   ├── Service.js
+│   ├── Chat.js
+│   ├── Payment.js
+│   └── Review.js
+│
+├── routes/                # All Express routes
+│   ├── authRoutes.js
+│   ├── bookingRoutes.js
+│   ├── mechanicRoutes.js
+│   ├── userRoutes.js
+│   └── adminRoutes.js
+│
+├── middleware/            # Custom middlewares (auth, error handling)
+│   ├── authMiddleware.js
+│   └── errorHandler.js
+│
+├── utils/                 # Utilities (e.g., email, SMS, tokens)
+│   ├── jwt.js
+│   ├── sms.js
+│   └── email.js
+│
+├── sockets/               # Socket.io real-time logic
+│   └── index.js
+│
+├── .env                   # Environment variables
+├── server.js              # Entry point
+└── package.json
+
+curl -X POST http://localhost:8080/auth/mechanic/register \
+-H "Content-Type: application/json" \
+-d '{
+  "name": "John Mechanic",
+  "email": "john@mechanic.com",
+  "password": "mechpass123",
+  "phone": "9123456789",
+  "garageName": "Johns Garage",
+  "servicesOffered": ["Flat Tire", "Engine Repair"]
+}'
+
+curl -X POST http://localhost:8080/auth/user/register/ \
+-H "Content-Type: application/json" \
+-d '{
+  "name": "Alice",
+  "email": "alice@example.com",
+  "password": "test1234",
+  "phone": "9876543210"
+}'
+
